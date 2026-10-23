@@ -130,19 +130,22 @@
           </address>
           <dl class="hours"><dt>Mo–Do</dt><dd>7:30–17:00 Uhr</dd><dt>Freitag</dt><dd>7:30–15:00 Uhr</dd><dt>Sa, So</dt><dd>geschlossen</dd></dl>
         </div>
+        <!-- Beispielformular: bewusst ohne name-Attribute und ohne action. Felder ohne name
+             werden vom Browser nie übertragen, auch nicht ohne JavaScript; js/main.js
+             verhindert zusätzlich das Absenden. Ausgewählte Fotos bleiben im Browser. -->
         <form class="form" id="termin-form" novalidate>
           <h3>Kurz zum Schaden</h3>
           <div class="row">
-            <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name"></div>
-            <div class="field"><label for="f-tel">Telefon</label><input id="f-tel" name="tel" type="tel" autocomplete="tel"></div>
+            <div class="field"><label for="f-name">Name</label><input id="f-name" autocomplete="name"></div>
+            <div class="field"><label for="f-tel">Telefon</label><input id="f-tel" type="tel" autocomplete="tel"></div>
           </div>
           <div class="row">
-            <div class="field"><label for="f-kz">Kennzeichen</label><input id="f-kz" name="kz"></div>
-            <div class="field"><label for="f-vs">Versicherung</label><input id="f-vs" name="vs"></div>
+            <div class="field"><label for="f-kz">Kennzeichen</label><input id="f-kz"></div>
+            <div class="field"><label for="f-vs">Versicherung</label><input id="f-vs"></div>
           </div>
-          <div class="field"><label for="f-art">Art des Schadens</label><select id="f-art" name="art"><option>Unfallschaden</option><option>Lackschaden / Kratzer</option><option>Delle / Hagel</option><option>Sonstiges</option></select></div>
-          <div class="field"><label for="f-text">Was ist passiert?</label><textarea id="f-text" name="text"></textarea></div>
-          <div class="field"><label for="f-fotos">Fotos vom Schaden <span class="optional">(optional)</span></label><input id="f-fotos" name="fotos" type="file" accept="image/*" multiple><p class="field-note">Mit Fotos können wir den Aufwand vorab grob einschätzen.</p></div>
+          <div class="field"><label for="f-art">Art des Schadens</label><select id="f-art"><option>Unfallschaden</option><option>Lackschaden / Kratzer</option><option>Delle / Hagel</option><option>Sonstiges</option></select></div>
+          <div class="field"><label for="f-text">Was ist passiert?</label><textarea id="f-text"></textarea></div>
+          <div class="field"><label for="f-fotos">Fotos vom Schaden <span class="optional">(optional)</span></label><input id="f-fotos" type="file" accept="image/*" multiple><p class="field-note">Mit Fotos können wir den Aufwand vorab grob einschätzen.</p></div>
           <button class="btn btn--solid" type="submit">Anfrage senden</button>
           <p class="form-note">Beispielformular: Es wird nichts gesendet und nichts gespeichert.</p>
           <p class="form-done" id="form-done" role="status">Danke, das war nur ein Muster. In einer echten Seite ginge die Anfrage jetzt an den Betrieb.</p>

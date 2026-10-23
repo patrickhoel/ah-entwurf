@@ -8,6 +8,9 @@
   <meta name="robots" content="noindex">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/css/style.css">
+  <!-- Strukturierte Daten: Platzhalterwerte des fiktiven Betriebs; FAQ wortgleich zu #fragen halten -->
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "AutoRepair", "name": "Karosserie Muster GmbH", "description": "Beispielseite (fiktiver Betrieb): Unfallinstandsetzung, Karosserie und Lackierung, Partnerwerkstatt großer Kfz-Versicherer.", "telephone": "+49 0000 0000000", "email": "info@beispiel.invalid", "address": {"@type": "PostalAddress", "streetAddress": "Musterstraße 1", "postalCode": "00000", "addressLocality": "Musterstadt", "addressCountry": "DE"}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"], "opens": "07:30", "closes": "17:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "07:30", "closes": "15:00"}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Wie lange dauert eine Unfallreparatur?", "acceptedAnswer": {"@type": "Answer", "text": "Stoßfänger, Türen und ähnliche Schäden sind bei uns in der Regel innerhalb einer Woche fertig. Müssen Teile bestellt werden oder ist die Struktur betroffen, kann es länger dauern. Den Zeitplan nennen wir Ihnen mit der Kalkulation."}}, {"@type": "Question", "name": "Was ist eine Zahlungsanweisung?", "acceptedAnswer": {"@type": "Answer", "text": "Die Versicherung bestätigt uns die Kostenübernahme und überweist direkt an uns. Sie müssen die Reparatur nicht vorstrecken und sich nicht um die Abrechnung kümmern."}}, {"@type": "Question", "name": "Was bedeutet Partnerwerkstatt?", "acceptedAnswer": {"@type": "Answer", "text": "Wir arbeiten mit mehreren großen Kfz-Versicherern zusammen. Kalkulation und Abwicklung laufen über feste Wege, das spart Rückfragen und Zeit. Auch ohne Partnerschaft Ihrer Versicherung können Sie zu uns kommen."}}, {"@type": "Question", "name": "Passt der neue Lack zum Rest des Autos?", "acceptedAnswer": {"@type": "Answer", "text": "Wir bestimmen den Farbton mit einem Messgerät direkt am Fahrzeug, denn Lack altert und verändert sich. Mit Spies-Hecker-Lacken wird er angemischt und zu den Nachbarteilen hin angeglichen."}}, {"@type": "Question", "name": "Kann ich meine Werkstatt trotz Versicherungsvorgabe wählen?", "acceptedAnswer": {"@type": "Answer", "text": "Bei unverschuldeten Schäden ja. Bei einem Kasko-Schaden hängt es von Ihrem Vertrag ab, zum Beispiel bei Werkstattbindungstarifen."}}, {"@type": "Question", "name": "Kann ich Fotos vom Schaden vorab schicken?", "acceptedAnswer": {"@type": "Answer", "text": "Gern. Mit Fotos können wir den Aufwand vorab grob einschätzen. Die genaue Kalkulation machen wir am Fahrzeug."}}]}</script>
 </head>
 <body>
   <a class="skip" href="#main">Zum Inhalt springen</a>
@@ -36,6 +39,7 @@
           <a class="btn btn--solid" href="#kontakt">Schaden melden</a>
           <a class="btn btn--line" href="#unfall">Was nach einem Unfall zu tun ist</a>
         </div>
+        <p class="hero-info">Telefon <a href="tel:00000000000">0000 / 000 00 00</a> · Mo–Do 7:30–17:00, Fr 7:30–15:00 Uhr</p>
       </div>
     </section>
 
@@ -126,18 +130,22 @@
           </address>
           <dl class="hours"><dt>Mo–Do</dt><dd>7:30–17:00 Uhr</dd><dt>Freitag</dt><dd>7:30–15:00 Uhr</dd><dt>Sa, So</dt><dd>geschlossen</dd></dl>
         </div>
+        <!-- Beispielformular: bewusst ohne name-Attribute und ohne action. Felder ohne name
+             werden vom Browser nie übertragen, auch nicht ohne JavaScript; js/main.js
+             verhindert zusätzlich das Absenden. Ausgewählte Fotos bleiben im Browser. -->
         <form class="form" id="termin-form" novalidate>
           <h3>Kurz zum Schaden</h3>
           <div class="row">
-            <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name"></div>
-            <div class="field"><label for="f-tel">Telefon</label><input id="f-tel" name="tel" type="tel" autocomplete="tel"></div>
+            <div class="field"><label for="f-name">Name</label><input id="f-name" autocomplete="name"></div>
+            <div class="field"><label for="f-tel">Telefon</label><input id="f-tel" type="tel" autocomplete="tel"></div>
           </div>
           <div class="row">
-            <div class="field"><label for="f-kz">Kennzeichen</label><input id="f-kz" name="kz"></div>
-            <div class="field"><label for="f-vs">Versicherung</label><input id="f-vs" name="vs"></div>
+            <div class="field"><label for="f-kz">Kennzeichen</label><input id="f-kz"></div>
+            <div class="field"><label for="f-vs">Versicherung</label><input id="f-vs"></div>
           </div>
-          <div class="field"><label for="f-art">Art des Schadens</label><select id="f-art" name="art"><option>Unfallschaden</option><option>Lackschaden / Kratzer</option><option>Delle / Hagel</option><option>Sonstiges</option></select></div>
-          <div class="field"><label for="f-text">Was ist passiert?</label><textarea id="f-text" name="text"></textarea></div>
+          <div class="field"><label for="f-art">Art des Schadens</label><select id="f-art"><option>Unfallschaden</option><option>Lackschaden / Kratzer</option><option>Delle / Hagel</option><option>Sonstiges</option></select></div>
+          <div class="field"><label for="f-text">Was ist passiert?</label><textarea id="f-text"></textarea></div>
+          <div class="field"><label for="f-fotos">Fotos vom Schaden <span class="optional">(optional)</span></label><input id="f-fotos" type="file" accept="image/*" multiple><p class="field-note">Mit Fotos können wir den Aufwand vorab grob einschätzen.</p></div>
           <button class="btn btn--solid" type="submit">Anfrage senden</button>
           <p class="form-note">Beispielformular: Es wird nichts gesendet und nichts gespeichert.</p>
           <p class="form-done" id="form-done" role="status">Danke, das war nur ein Muster. In einer echten Seite ginge die Anfrage jetzt an den Betrieb.</p>
